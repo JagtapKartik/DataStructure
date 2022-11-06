@@ -9,19 +9,31 @@
 #include <iostream>
 using namespace std;
 
-int recursive_fucntion(int n){
-	if(n>0){
-		return recursive_fucntion(n-1) + n;
+void recursive_fucntion_print_before(int n)
+{
+	if(n>0)
+	{
+		printf("[%d]\n", n);
+		recursive_fucntion_print_before(n-1) ;
 	}
-	return 0;
+}
+
+void recursive_fucntion_print_after(int n)
+{
+	if(n>0)
+	{
+		recursive_fucntion_print_after(n-1) ;
+		printf("[%d]\n", n);
+	}
 }
 
 
 
-
+#if 0
 int s[5] = {1,2,1,3,2};
 
-int birthday(int s_count, int* s, int d, int m) {
+int birthday(int s_count, int* s, int d, int m)
+{
     int count = 0;
     int sum = 0;
     int count_ret = 0;
@@ -36,18 +48,11 @@ int birthday(int s_count, int* s, int d, int m) {
     }
     return count_ret;
 }
+#endif
 
 int main() {
-//	int n = 5;
-//	printf("%d\n",recursive_fucntion(n));
-
-	/*int a = 10;
-	printf("%d\n",a);
-	printf("%d\n",a++);
-	printf("%d\n",++a);
-	printf("%d %d %d\n",a,a++,++a);
-	*/
-	printf("%d\n",birthday(5,s,3,2));
-
+	int n = 5;
+	recursive_fucntion_print_before(n);
+	recursive_fucntion_print_after(n);
 	return 0;
 }
